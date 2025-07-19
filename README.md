@@ -39,12 +39,17 @@ CGPA: **7.04/10.0**
 * [**LinkedIn**](https://www.linkedin.com/in/tanishpatel05/)
 * [**LeetCode**](https://leetcode.com/u/yonko_luffy/)
 * [**Codeforces**](https://codeforces.com/profile/yonko_luffy)
+* [**CodeChef**](https://www.codechef.com/users/yonko_luffy)
+* [**SmartInterviews**](https://smartinterviews.in/profile/tanish_patel)
+<br>
 
 </td>
 <td width="67%" valign="top">
 
 ### Profile Summary
-Computer Science student (5th Semester) with a strong foundation in data structures and algorithms, validated by solving 350+ competitive programming problems. Proficient in C++ (OOP) and Python, with practical experience developing a full-stack web application using Flask and PostgreSQL. Actively seeking a Software Development Internship to apply problem-solving skills to real-world challenges and contribute to a collaborative team.
+* Computer Science student (5th Semester) with a strong foundation in data structures and algorithms, validated by solving 350+ competitive programming problems.
+* Proficient in C++ (OOP) and Python, with practical experience developing a full-stack web application using Flask and PostgreSQL.
+* Actively seeking a Software Development Internship to apply problem-solving skills to real-world challenges and contribute to a collaborative team.
 
 ---
 
