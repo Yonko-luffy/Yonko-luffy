@@ -1,75 +1,16 @@
-<div align="center">
+# 💫 About Me:
+Incoming Software Engineer Intern @ Microsoft | Codeforces Specialist<br><br>I am a B.Tech Computer Science student at Parul University (Batch of 2027) with a deep passion for backend engineering and algorithmic problem-solving.<br><br>I recently secured a Software Engineer Internship at Microsoft (Summer 2026), where I look forward to working on large-scale engineering challenges.<br><br>My core strengths lie in building robust, secure systems. I have developed full-stack applications like Quantify (a secure quiz platform with 2FA) and LinkForge (a multi-tenant URL shortener), utilizing Python, Flask, PostgreSQL, and Docker. I enjoy the challenge of designing efficient database schemas and scalable architectures.<br><br>Beyond development, I have a strong foundation in Data Structures & Algorithms, with 600+ problems solved across platforms:<br><br>LeetCode: Knight Badge (Max Rating: 1908)<br><br>Codeforces: Specialist (Max Rating: 1401)<br><br>CodeChef: 2-Star (Max Rating: 1589)<br><br>I am always looking for opportunities to apply my backend skills to build impactful software solutions.
 
-# Tanish Patel
-> [pateltanish2109@gmail.com](mailto:pateltanish2109@gmail.com) • +91 97149 90908
 
-</div>
+## 🌐 Socials:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/https://www.linkedin.com/in/tanish-patel-cs/) 
 
----
-
-<table width="100%">
-<tr>
-<td width="33%" valign="top">
-
-### Education
-**Parul University** <br> *B.Tech in CS & Engineering* <br> 2022 – Present | Vadodara, India  
-CGPA: **7.04/10.0**
+# 💻 Tech Stack:
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white) ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+# 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=Yonko-luffy&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=false)<br/>
+![](https://nirzak-streak-stats.vercel.app/?user=Yonko-luffy&theme=tokyonight&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=Yonko-luffy&theme=tokyonight&hide_border=false&include_all_commits=true&count_private=false&layout=compact)
 
 ---
-
-### Skills
-* **Languages:** C++, Python, SQL, HTML/CSS, JavaScript
-* **Frameworks:** Flask, PostgreSQL
-* **Tools:** Git, VS Code, Linux, AWS
-* **Core:** Data Structures, Algorithms, OOP, System Design
-
----
-
-### Certifications
-* **AWS:** Cloud Practitioner Essentials
-* **AWS:** Cloud Essentials Knowledge Badge
-* **NPTEL:** Computer Networking
-* *Ongoing: AWS Academy Cloud Foundations*
-
----
-
-### Links
-* [**Coding Portfolio**](https://codolio.com/profile/YONKO_LUFFY)
-* [**GitHub**](https://github.com/Yonko-luffy)
-* [**LinkedIn**](https://www.linkedin.com/in/tanishpatel05/)
-* [**LeetCode**](https://leetcode.com/u/yonko_luffy/)
-* [**Codeforces**](https://codeforces.com/profile/yonko_luffy)
-* [**CodeChef**](https://www.codechef.com/users/yonko_luffy)
-* [**SmartInterviews**](https://smartinterviews.in/profile/tanish_patel)
-<br>
-
-</td>
-<td width="67%" valign="top">
-
-### Profile Summary
-* Computer Science student (5th Semester) with a strong foundation in data structures and algorithms, validated by solving 350+ competitive programming problems.
-* Proficient in C++ (OOP) and Python, with practical experience developing a full-stack web application using Flask and PostgreSQL.
-* Actively seeking a Software Development Internship to apply problem-solving skills to real-world challenges and contribute to a collaborative team.
-
----
-
-### Projects
-#### Quiz Web App (In Progress)
-* **Tech Stack:** Flask, PostgreSQL, Python, HTML/CSS
-* **GitHub Link:** [Yonko-luffy/QuizApp](https://github.com/Yonko-luffy/QuizApp)
-* Developing a full-stack quiz platform featuring user authentication, an admin panel for content management, and score tracking.
-* Implementing role-based access control (user/admin) using Flask-Login and designing a robust schema with PostgreSQL.
-* Designed functionality for administrators to dynamically create, update, and delete quizzes and their corresponding questions.
-
----
-
-### Competitive Programming
-* **Overview:** Solved 350+ problems across platforms, primarily using C++ and Python. Focus areas include DP, Greedy Algorithms, Recursion, and STL.
-* **LeetCode:** Contest Rating: **1580** (Top 26.14%) | Problems: 96
-* **CodeChef:** Rating: **1475** (2-Star) | C++ Skill Test: 79%
-* **Codeforces:** Max Rating: **1156** (Newbie) | Problems: 47
-* **SmartInterviews:** Global Rank: **Top #1175** out of 43,341
-
-</td>
-</tr>
-</table>
+[![](https://visitcount.itsvg.in/api?id=Yonko-luffy&icon=0&color=0)](https://visitcount.itsvg.in)
