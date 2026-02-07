@@ -177,9 +177,29 @@ footer p {
   float: right;
   cursor: pointer;
 }
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
 .modal-actions a {
-  margin-right: 12px;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  display: inline-block;
+}
+
+.modal-actions a:hover {
   color: #7dd3fc;
+  border-color: rgba(56,189,248,0.5);
 }
 /* Mobile Optimizations */
 @media (max-width: 768px) {
