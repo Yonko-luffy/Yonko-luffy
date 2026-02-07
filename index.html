@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tanish Patel | Backend Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Backend-Focused Engineer</div>
+  <h1>Tanish Patel</h1>
+  <p>
+    Computer Science Engineering student passionate about backend engineering,
+    scalable systems, and algorithmic problem-solving.
+  </p>
+  <div class="hero-actions">
+    <a class="btn primary" href="assets/resume.pdf" target="_blank">Download Resume</a>
+    <a class="btn ghost" href="#projects">View Projects</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I am Tanish Patel, a Computer Science Engineering student at Parul University (Batch of 2027) with a deep passion for backend engineering and algorithmic problem-solving.
+      I recently secured a Software Engineer Internship at Microsoft (Summer 2026). My core strengths lie in building robust, secure systems using Python, Flask, PostgreSQL, and Docker.
+      I enjoy designing efficient database schemas and scalable architectures.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <!-- Replace src with your own icons later -->
+      <div class="skill"><img src="assets/icons/c++.png" alt=""><span>C++</span></div>
+      <div class="skill"><img src="assets/icons/python.png" alt=""><span>Python</span></div>
+      <div class="skill"><img src="assets/icons/java.png" alt=""><span>Java</span></div>
+      <div class="skill"><img src="assets/icons/flask.png" alt=""><span>Flask</span></div>
+      <div class="skill"><img src="assets/icons/postgres.png" alt=""><span>PostgreSQL</span></div>
+      <div class="skill"><img src="assets/icons/docker.svg" alt=""><span>Docker</span></div>
+      <div class="skill"><img src="assets/icons/git.png" alt=""><span>Git</span></div>
+      <div class="skill"><img src="assets/icons/linux.png" alt=""><span>Linux</span></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="projects-grid">
+      <div class="card" onclick="openModal('quantify')">
+        <h3>Quantify – Secure Quiz Platform</h3>
+        <p>Role-based quiz platform with 2FA and security hardening.</p>
+        <div class="tags">
+          <span>Flask</span><span>PostgreSQL</span><span>RBAC</span>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('linkforge')">
+        <h3>LinkForge – URL Shortener</h3>
+        <p>Multi-tenant URL shortener with Dockerized deployment.</p>
+        <div class="tags">
+          <span>Flask</span><span>Docker</span><span>Gunicorn</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card">
+      <h3>Software Engineering Intern – Microsoft (Upcoming)</h3>
+      <p>Incoming Summer 2026 Intern. Will be working on large-scale engineering challenges.</p>
+    </div>
+  </section>
+
+  <section id="profiles">
+    <h2>Coding Profiles</h2>
+    <div class="profiles-grid">
+      <!-- Replace # with your profile links -->
+      <a class="profile-card" href="#" target="_blank"><img src="assets/icons/leetcode.png" alt="">LeetCode</a>
+      <a class="profile-card" href="#" target="_blank"><img src="assets/icons/codeforces.png" alt="">Codeforces</a>
+      <a class="profile-card" href="#" target="_blank"><img src="assets/icons/codechef.png" alt="">CodeChef</a>
+      <a class="profile-card" href="#" target="_blank"><img src="assets/icons/hackerrank.png" alt="">HackerRank</a>
+    </div>
+  </section>
+
+  <section id="connect">
+    <h2>Let's Connect</h2>
+    <div class="profiles-grid">
+      <a class="profile-card" href="#" target="_blank"><img src="assets/icons/linkedin.png" alt="">LinkedIn</a>
+      <a class="profile-card" href="mailto:your.email@example.com"><img src="assets/icons/email.png" alt="">Email</a>
+    </div>
+  </section>
+
+  <section class="cta-bottom">
+    <a class="btn primary" href="assets/resume.pdf" target="_blank">Download Resume</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="#" target="_blank">GitHub</a>
+    <a href="#" target="_blank">LinkedIn</a>
+    <a href="mailto:your.email@example.com">Email</a>
+  </div>
+  <p>© 2026 Tanish Patel · Backend Engineer</p>
+</footer>
+
+<!-- Project Modals -->
+<div class="modal" id="quantify">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal('quantify')">×</button>
+    <h3>Quantify – Secure Quiz Platform</h3>
+    <p>
+      Secure quiz platform with RBAC, async 2FA, rate-limiting, CSRF protection, and reCAPTCHA.
+      Designed robust schemas for quizzes, questions, attempts, and scoring.
+    </p>
+    <div class="modal-actions">
+      <a href="#" target="_blank">GitHub (add link)</a>
+      <a href="#" target="_blank">Live Demo (add link)</a>
+    </div>
+    <div class="modal-images">
+      <!-- Optional: add screenshots later -->
+      <!-- <img src="assets/projects/quantify-1.png" alt=""> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="linkforge">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal('linkforge')">×</button>
+    <h3>LinkForge – URL Shortener</h3>
+    <p>
+      Multi-tenant URL shortener with user namespaces, bulk QR download, CSV export,
+      Dockerized deployment, and CI/CD on Render.
+    </p>
+    <div class="modal-actions">
+      <a href="#" target="_blank">GitHub (add link)</a>
+      <a href="#" target="_blank">Live Demo (add link)</a>
+    </div>
+    <div class="modal-images">
+      <!-- Optional screenshots -->
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
