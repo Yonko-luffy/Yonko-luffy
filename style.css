@@ -93,6 +93,16 @@ body {
   transform: translateY(-2px);
 }
 
+.profile-card.email-card {
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.profile-card.email-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56,189,248,0.5);
+}
+
 .skill img, .profile-card img { width: 28px; height: 28px; }
 
 .card {
@@ -146,8 +156,32 @@ footer {
   border-color: rgba(56,189,248,0.5);
 }
 
+.footer-links .email-link {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-links .email-link:hover {
+  color: #7dd3fc;
+  border-color: rgba(56,189,248,0.5);
+}
+
 footer p {
   margin: 0;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
 }
 
 /* Modal */
