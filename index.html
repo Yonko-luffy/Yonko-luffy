@@ -1,153 +1,729 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="scroll-smooth" lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tanish Patel | Backend Engineer</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Tanish Patel | Backend Systems & Architecture</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,200..800&amp;family=Space+Grotesk:wght@300;400;500;700&amp;family=DM+Mono:wght@300;400;500&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface": "#1a1c1c",
+            "tertiary-fixed": "#e6e2df",
+            "on-tertiary-fixed-variant": "#484645",
+            "surface-bright": "#f9f9f9",
+            "on-tertiary-fixed": "#1c1b1a",
+            "surface-container-highest": "#e2e2e2",
+            "on-primary-container": "#858383",
+            "secondary-container": "#0356ff",
+            "on-tertiary": "#ffffff",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#1c1b1a",
+            "surface-container-low": "#f3f3f3",
+            "secondary-fixed": "#dce1ff",
+            "on-background": "#1a1c1c",
+            "outline-variant": "#c4c7c7",
+            "inverse-primary": "#c8c6c5",
+            "surface-variant": "#e2e2e2",
+            "on-primary-fixed": "#1c1b1b",
+            "surface-dim": "#dadada",
+            "surface": "#f9f9f9",
+            "primary-fixed-dim": "#c8c6c5",
+            "surface-container-high": "#e8e8e8",
+            "outline": "#747878",
+            "error-container": "#ffdad6",
+            "primary-container": "#1c1b1b",
+            "surface-container": "#eeeeee",
+            "secondary-fixed-dim": "#b6c4ff",
+            "surface-tint": "#5f5e5e",
+            "on-secondary-fixed-variant": "#0039b3",
+            "on-secondary-container": "#e4e7ff",
+            "tertiary": "#000000",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#868382",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#cac6c4",
+            "secondary": "#0041c9",
+            "primary-fixed": "#e5e2e1",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#f0f1f1",
+            "on-surface-variant": "#444748",
+            "inverse-surface": "#2f3131",
+            "on-primary-fixed-variant": "#474746",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#001551",
+            "background": "#f9f9f9",
+            "primary": "#000000"
+          },
+          fontFamily: {
+            "headline": ["Newsreader"],
+            "body": ["DM Mono", "Space Grotesk"],
+            "label": ["DM Mono"]
+          },
+          borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'DM Mono', 'Space Grotesk', sans-serif;
+      cursor: crosshair;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .massive-type {
+      font-size: 13vw;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    .shard-bg {
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    }
+
+    .blink {
+      animation: blink-animation 1s step-end infinite;
+    }
+
+    @keyframes blink-animation {
+
+      from,
+      to {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .vertical-text {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    .char {
+      display: inline-block;
+    }
+
+    /* Preloader Styles */
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .loader-pulse {
+      width: 120px;
+      height: 120px;
+      background: white;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      pointer-events: none;
+    }
+
+    .flash-overlay {
+      position: fixed;
+      inset: 0;
+      background: white;
+      z-index: 100000;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Smooth Scrolling Support */
+    html.lenis {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+  </style>
 </head>
-<body>
 
-<header class="hero">
-  <div class="badge">Backend-Focused Engineer</div>
-  <h1>Tanish Patel</h1>
-  <p>
-    Computer Science Engineering student passionate about backend engineering,
-    scalable systems, and algorithmic problem-solving.
-  </p>
-  <div class="hero-actions">
-    <a class="btn primary" href="assets/resume.pdf" target="_blank">Download Resume</a>
-    <a class="btn ghost" href="#projects">View Projects</a>
-  </div>
-</header>
-
-<main class="container">
-
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I am Tanish Patel, a Computer Science Engineering student at Parul University (Batch of 2027) with a deep passion for backend engineering and algorithmic problem-solving.
-      I recently secured a Software Engineer Internship at Microsoft (Summer 2026). My core strengths lie in building robust, secure systems using Python, Flask, PostgreSQL, and Docker.
-      I enjoy designing efficient database schemas and scalable architectures.
-    </p>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <!-- Replace src with your own icons later -->
-      <div class="skill"><img src="assets/icons/c++.png" alt=""><span>C++</span></div>
-      <div class="skill"><img src="assets/icons/python.png" alt=""><span>Python</span></div>
-      <div class="skill"><img src="assets/icons/java.png" alt=""><span>Java</span></div>
-      <div class="skill"><img src="assets/icons/flask.png" alt=""><span>Flask</span></div>
-      <div class="skill"><img src="assets/icons/postgres.png" alt=""><span>PostgreSQL</span></div>
-      <div class="skill"><img src="assets/icons/docker.svg" alt=""><span>Docker</span></div>
-      <div class="skill"><img src="assets/icons/git.png" alt=""><span>Git</span></div>
-      <div class="skill"><img src="assets/icons/linux.png" alt=""><span>Linux</span></div>
+<body class="bg-surface text-on-surface selection:bg-secondary selection:text-white">
+  <div id="loader">
+    <div class="loader-pulse" id="loaderPulse"></div>
+    <div class="mt-8 font-body text-white text-[10px] tracking-[0.5em] uppercase" id="loaderText">SYSTEM INITIALIZATION
     </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="projects-grid">
-      <div class="card" onclick="openModal('quantify')">
-        <h3>Quantify – Secure Quiz Platform</h3>
-        <p>Role-based quiz platform with 2FA and security hardening.</p>
-        <div class="tags">
-          <span>Flask</span><span>PostgreSQL</span><span>RBAC</span>
+    <div class="absolute bottom-12 w-48 h-[1px] bg-white/10">
+      <div class="h-full bg-white w-0" id="loaderBar"></div>
+    </div>
+  </div>
+  <div class="flash-overlay" id="flash"></div>
+  <div class="noise-overlay"></div>
+  <!-- Top Navigation Shell -->
+  <header
+    class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 backdrop-blur-xl flex justify-between items-center px-12 py-6 opacity-0"
+    id="mainHeader">
+    <div class="text-xl font-black text-black uppercase tracking-widest font-body">
+      TANISH_PATEL_ENV_V1.0
+    </div>
+    <nav class="hidden md:flex space-x-6 items-center">
+      <a class="text-slate-500 hover:text-secondary hover:bg-slate-100 transition-all duration-200 font-body text-xs tracking-widest px-4 py-2"
+        href="#archive">ARCHIVE</a>
+      <a class="text-slate-500 hover:text-secondary hover:bg-slate-100 transition-all duration-200 font-body text-xs tracking-widest px-4 py-2"
+        href="#logs">SYSTEM_LOGS</a>
+      <a class="text-slate-500 hover:text-secondary hover:bg-slate-100 transition-all duration-200 font-body text-xs tracking-widest px-4 py-2"
+        href="#connect">CONNECT</a>
+      <a class="bg-black text-white px-4 py-2 hover:bg-secondary transition-colors duration-200 font-body text-xs tracking-widest uppercase flex items-center border border-black hover:border-secondary ml-4"
+        href="assets/resume.pdf" target="_blank">DOWNLOAD_RESUME <span class="material-symbols-outlined text-[14px] ml-2">download</span></a>
+    </nav>
+    <div class="text-black flex space-x-6 items-center">
+      <a href="mailto:pateltanish2109@gmail.com" class="hover:text-secondary transition-colors duration-200 flex items-center" title="Send Email"><span class="material-symbols-outlined">mail</span></a>
+    </div>
+  </header>
+  <main class="opacity-0" id="content">
+    <!-- Section 2: Hero -->
+    <section class="min-h-screen flex flex-col justify-center px-12 relative overflow-hidden bg-surface pt-24"
+      id="hero">
+      <!-- Background Shards -->
+      <div class="absolute inset-0 z-0 opacity-10 pointer-events-none overflow-hidden">
+        <div class="shard-item absolute top-1/4 left-1/4 w-96 h-96 bg-primary shard-bg transform rotate-12"></div>
+        <div class="shard-item absolute bottom-1/4 right-1/3 w-64 h-64 bg-secondary shard-bg transform -rotate-45">
         </div>
       </div>
-
-      <div class="card" onclick="openModal('linkforge')">
-        <h3>LinkForge – URL Shortener</h3>
-        <p>Multi-tenant URL shortener with Dockerized deployment.</p>
-        <div class="tags">
-          <span>Flask</span><span>Docker</span><span>Gunicorn</span>
+      <div class="relative z-10 space-y-8">
+        <div class="flex flex-col">
+          <span class="font-body text-xs tracking-[0.5em] text-secondary mb-4 uppercase hero-stagger">&gt;
+            SYSTEM_ARCHITECT_IDENTITY</span>
+          <h1 class="font-headline italic massive-type text-primary overflow-hidden pt-8 -mt-8" id="heroName">
+            <span class="block">Tanish</span>
+            <span class="block ml-[10vw]">Patel</span>
+          </h1>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mt-12 hero-stagger">
+          <div class="max-w-xl">
+            <p class="font-body text-lg leading-relaxed text-on-surface-variant">
+              Designing robust backend systems that scale, fail gracefully, and prioritize security. Specialized in
+              architecting high-throughput services and secure database schemas.
+            </p>
+            <div class="mt-6 flex space-x-4">
+              <span
+                class="bg-surface-container-high px-3 py-1 text-[10px] font-body uppercase tracking-widest text-on-surface-variant">&gt;
+                PYTHON_FLASK</span>
+              <span
+                class="bg-surface-container-high px-3 py-1 text-[10px] font-body uppercase tracking-widest text-on-surface-variant">&gt;
+                POSTGRES_SQL</span>
+              <span
+                class="bg-surface-container-high px-3 py-1 text-[10px] font-body uppercase tracking-widest text-on-surface-variant">&gt;
+                DOCKER_ENV</span>
+            </div>
+          </div>
+          <div class="flex flex-col items-end">
+            <span class="font-body text-xs uppercase tracking-widest text-slate-400 mb-2">Scroll to Descend</span>
+            <div class="w-px h-24 bg-gradient-to-b from-primary to-transparent"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>Software Engineering Intern – Microsoft (Upcoming)</h3>
-      <p>Incoming Summer 2026 Intern. Will be working on large-scale engineering challenges.</p>
-    </div>
-  </section>
-
-  <section id="profiles">
-    <h2>Coding Profiles</h2>
-    <div class="profiles-grid">
-      <a class="profile-card" href="https://leetcode.com/u/yonko_luffy" target="_blank"><img src="assets/icons/leetcode.png" alt="">LeetCode</a>
-      <a class="profile-card" href="https://codeforces.com/profile/yonko_luffy" target="_blank"><img src="assets/icons/codeforces.png" alt="">Codeforces</a>
-      <a class="profile-card" href="https://www.codechef.com/users/yonko_luffy" target="_blank"><img src="assets/icons/codechef.png" alt="">CodeChef</a>
-      <a class="profile-card" href="https://www.hackerrank.com/profile/yonko_luffy" target="_blank"><img src="assets/icons/hackerrank.png" alt="">HackerRank</a>
-    </div>
-  </section>
-
-  <section id="connect">
-    <h2>Let's Connect</h2>
-    <div class="profiles-grid">
-      <a class="profile-card" href="https://www.linkedin.com/in/tanish-patel-cs/" target="_blank"><img src="assets/icons/linkedin.png" alt="">LinkedIn</a>
-      <a class="profile-card email-card" onclick="copyEmail()" title="Click to copy"><img src="assets/icons/email.png" alt="">pateltanish2109@gmail.com</a>
-    </div>
-  </section>
-
-  <section class="cta-bottom">
-    <a class="btn primary" href="assets/resume.pdf" target="_blank">Download Resume</a>
-  </section>
-
-</main>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://github.com/yonko-luffy" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/tanish-patel-cs/" target="_blank">LinkedIn</a>
-    <span class="email-link" onclick="copyEmail()" title="Click to copy">pateltanish2109@gmail.com</span>
+    </section>
+    <!-- Section 3: System Overview -->
+    <section class="py-32 px-12 bg-surface-container-low flex relative" id="overview">
+      <div
+        class="absolute left-4 top-32 vertical-text font-body text-[8vw] font-black text-black/5 pointer-events-none overview-vertical">
+        OVERVIEW
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 w-full z-10">
+        <div class="md:col-start-3 md:col-span-4 flex flex-col space-y-12">
+          <h2 class="font-headline italic text-6xl text-primary leading-none reveal-line">Scalable <br /> Foundations.
+          </h2>
+          <div class="bg-surface-container-highest p-8 space-y-6 reveal-block">
+            <p class="font-body text-sm leading-relaxed text-on-surface-variant">
+              Hi, I'm Tanish. I believe that backend engineering is the backbone of any reliable application. I focus on building
+              systems where performance is a feature and security is a default.
+            </p>
+            <p class="font-body text-sm leading-relaxed text-on-surface-variant">
+              Incoming Software Engineer Intern at Microsoft (Summer 2026). My work bridges the gap between complex
+              algorithmic challenges and practical, scalable production environments.
+            </p>
+            <p class="font-body text-sm leading-relaxed text-on-surface-variant">
+              Outside of coding, I'm a massive Formula 1 fan. I love watching the races as a hobby, and I have a deep appreciation for the bleeding-edge technology, telemetry, and split-second engineering involved in the sport.
+            </p>
+            <span class="block font-body text-xs text-secondary mt-4">// End of Overview <span
+                class="blink">_</span></span>
+          </div>
+        </div>
+        <div class="md:col-span-5 flex flex-col justify-center space-y-16 pl-12">
+          <div class="space-y-4 reveal-item">
+            <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-2">01 / Backend
+              Infrastructure
+            </div>
+            <p class="font-body text-base text-on-surface">Architecting secure, role-based platforms with hardened
+              security measures and efficient data flows.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-[8px] border border-black/10 px-2 py-1 uppercase scale-90">Python</span>
+              <span class="text-[8px] border border-black/10 px-2 py-1 uppercase scale-90">Flask</span>
+              <span class="text-[8px] border border-black/10 px-2 py-1 uppercase scale-90">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="space-y-4 reveal-item">
+            <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-2">02 / Scalable Services
+            </div>
+            <p class="font-body text-base text-on-surface">Designing multi-tenant architectures and leveraging
+              containerization for consistent, high-availability deployments.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-[8px] border border-black/10 px-2 py-1 uppercase scale-90">Docker</span>
+              <span class="text-[8px] border border-black/10 px-2 py-1 uppercase scale-90">Linux</span>
+              <span class="text-[8px] border border-black/10 px-2 py-1 uppercase scale-90">Gunicorn</span>
+            </div>
+          </div>
+          <div class="space-y-4 reveal-item">
+            <div class="text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-2">03 / Core Algorithms</div>
+            <p class="font-body text-base text-on-surface">Applying competitive programming principles to solve
+              real-world system optimization and scalability problems.</p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="text-[8px] border border-black/10 px-2 py-1 uppercase scale-90">C++</span>
+              <span class="text-[8px] border border-black/10 px-2 py-1 uppercase scale-90">Java</span>
+              <span class="text-[8px] border border-black/10 px-2 py-1 uppercase scale-90">DSA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 4: Execution History -->
+    <section class="py-32 px-12 bg-surface" id="logs">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-baseline space-x-8 mb-24 reveal-line">
+          <h2 class="font-headline italic text-8xl text-primary">History.</h2>
+          <span class="font-body text-xs tracking-widest text-slate-400">EXECUTION_LOGS_2023_2026</span>
+        </div>
+        <div class="space-y-1 timeline-container">
+          <!-- Entry 1 -->
+          <div
+            class="timeline-item group border-l-2 border-black/5 hover:border-secondary transition-all p-12 hover:bg-surface-container-low grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="font-body text-xs text-slate-400 uppercase tracking-widest">SUMMER 2026</div>
+            <div class="md:col-span-2">
+              <h3 class="text-2xl font-bold uppercase tracking-tight mb-2">Software Engineering Intern</h3>
+              <p class="font-body text-secondary text-sm mb-4">@ MICROSOFT (UPCOMING)</p>
+              <p class="text-sm text-on-surface-variant max-w-md">Selected for the prestigious Summer 2026 internship.
+                Will be contributing to large-scale engineering initiatives and solving complex backend challenges
+                within Microsoft's ecosystem.</p>
+            </div>
+            <div class="text-right flex flex-col justify-center">
+              <span class="text-4xl font-headline italic text-primary">L59+</span>
+              <span class="text-[10px] font-body text-slate-400 uppercase">Internship Grade</span>
+            </div>
+          </div>
+          <!-- Entry 2 -->
+          <div
+            class="timeline-item group border-l-2 border-black/5 hover:border-secondary transition-all p-12 hover:bg-surface-container-low grid grid-cols-1 md:grid-cols-4 gap-8 md:translate-x-12">
+            <div class="font-body text-xs text-slate-400 uppercase tracking-widest">2023 - 2027</div>
+            <div class="md:col-span-2">
+              <h3 class="text-2xl font-bold uppercase tracking-tight mb-2">B.Tech in Computer Science</h3>
+              <p class="font-body text-secondary text-sm mb-4">@ PARUL UNIVERSITY</p>
+              <p class="text-sm text-on-surface-variant max-w-md">Focusing on Core CS fundamentals, Data Structures,
+                Algorithms, and Database Management Systems. Maintaining a strong academic record while building
+                production-grade projects.</p>
+            </div>
+            <div class="text-right flex flex-col justify-center">
+              <span class="text-4xl font-headline italic text-primary">CS++</span>
+              <span class="text-[10px] font-body text-slate-400 uppercase">Academic Focus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 5: Systems Built (Projects) -->
+    <section class="py-32 px-12 bg-surface-container-high overflow-hidden" id="archive">
+      <div class="flex justify-between items-end mb-16 reveal-line">
+        <div>
+          <h2 class="font-headline italic text-8xl text-primary leading-none">Systems <br /> Built.</h2>
+        </div>
+        <div class="flex space-x-4">
+          <span class="material-symbols-outlined text-4xl text-black cursor-pointer">west</span>
+          <span class="material-symbols-outlined text-4xl text-secondary cursor-pointer">east</span>
+        </div>
+      </div>
+      <div class="flex space-x-12 overflow-x-auto pb-12 snap-x no-scrollbar project-track">
+        <!-- Project I -->
+        <div class="project-card min-w-[450px] bg-white p-12 flex flex-col justify-between snap-center relative group">
+          <span
+            class="text-6xl font-headline italic text-black/5 absolute top-4 right-4 group-hover:text-secondary/10 transition-colors">I</span>
+          <div>
+            <div class="text-[10px] font-bold text-secondary mb-4 tracking-widest uppercase">Project_Quantify</div>
+            <h4 class="text-2xl font-bold mb-6 uppercase flex items-center gap-3"><span class="material-symbols-outlined text-3xl text-secondary">security</span> Secure Quiz Platform</h4>
+            <div class="bg-surface-container-low p-6 font-body text-xs text-on-surface-variant mb-8">
+              <p class="mb-4">&gt; STATUS: DEPLOYED</p>
+              <p class="mb-4">&gt; PROBLEM: Vulnerable authentication and flat user roles.</p>
+              <p>&gt; SOLUTION: Implemented RBAC, async 2FA, and security hardening with Flask/PostgreSQL.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[8px] bg-black text-white px-2 py-1 uppercase tracking-tighter">FLASK</span>
+            <span class="text-[8px] bg-black text-white px-2 py-1 uppercase tracking-tighter">POSTGRES</span>
+            <span class="text-[8px] bg-black text-white px-2 py-1 uppercase tracking-tighter">RBAC</span>
+          </div>
+        </div>
+        <!-- Project II -->
+        <div class="project-card min-w-[450px] bg-white p-12 flex flex-col justify-between snap-center relative group">
+          <span
+            class="text-6xl font-headline italic text-black/5 absolute top-4 right-4 group-hover:text-secondary/10 transition-colors">II</span>
+          <div>
+            <div class="text-[10px] font-bold text-secondary mb-4 tracking-widest uppercase">Project_LinkForge</div>
+            <h4 class="text-2xl font-bold mb-6 uppercase flex items-center gap-3"><span class="material-symbols-outlined text-3xl text-secondary">hub</span> Multi-tenant URL Shortener</h4>
+            <div class="bg-surface-container-low p-6 font-body text-xs text-on-surface-variant mb-8">
+              <p class="mb-4">&gt; STATUS: STABLE</p>
+              <p class="mb-4">&gt; PROBLEM: Monolithic shorteners lacking user namespaces.</p>
+              <p>&gt; SOLUTION: Dockerized multi-tenant system with user isolation and QR/CSV exports.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[8px] bg-black text-white px-2 py-1 uppercase tracking-tighter">DOCKER</span>
+            <span class="text-[8px] bg-black text-white px-2 py-1 uppercase tracking-tighter">FLASK</span>
+            <span class="text-[8px] bg-black text-white px-2 py-1 uppercase tracking-tighter">GUNICORN</span>
+          </div>
+        </div>
+        <!-- Project III -->
+        <div class="project-card min-w-[450px] bg-white p-12 flex flex-col justify-between snap-center relative group">
+          <span
+            class="text-6xl font-headline italic text-black/5 absolute top-4 right-4 group-hover:text-secondary/10 transition-colors">III</span>
+          <div>
+            <div class="text-[10px] font-bold text-secondary mb-4 tracking-widest uppercase">Project_Lifeline</div>
+            <h4 class="text-2xl font-bold mb-6 uppercase flex items-center gap-3"><span class="material-symbols-outlined text-3xl text-secondary">speed</span> High-Throughput Utility System</h4>
+            <div class="bg-surface-container-low p-6 font-body text-xs text-on-surface-variant mb-8">
+              <p class="mb-4">&gt; STATUS: IN_PROGRESS</p>
+              <p class="mb-4">&gt; PROBLEM: Bottlenecked API services for real-world utilities.</p>
+              <p>&gt; SOLUTION: Designing a scalable backend with high-performance architecture and API optimization.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[8px] bg-black text-white px-2 py-1 uppercase tracking-tighter">BACKEND</span>
+            <span class="text-[8px] bg-black text-white px-2 py-1 uppercase tracking-tighter">SCALABILITY</span>
+            <span class="text-[8px] bg-black text-white px-2 py-1 uppercase tracking-tighter">ARCHITECTURE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 6: Terminal Access (Contact) -->
+    <section
+      class="min-h-screen py-32 px-12 bg-primary text-white flex flex-col justify-center items-center text-center relative overflow-hidden"
+      id="connect">
+      <!-- Background Shards Dark -->
+      <div class="absolute inset-0 z-0 opacity-5 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[50vw] h-[512px] bg-secondary shard-bg transform rotate-45"></div>
+        <div class="absolute bottom-0 left-0 w-[30vw] h-[307px] bg-white shard-bg transform -rotate-12"></div>
+      </div>
+      <div class="relative z-10 space-y-12 max-w-4xl contact-reveal">
+        <h2 class="font-headline italic text-7xl md:text-9xl tracking-tighter leading-[0.9] text-white">
+          Let's build something <br /> that scales.
+        </h2>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 pt-12">
+          <div class="group cursor-pointer link-item">
+            <span
+              class="text-[10px] font-body text-secondary uppercase tracking-[0.5em] block mb-2 opacity-0 group-hover:opacity-100 transition-opacity">&gt;
+              initiating connection...</span>
+            <a class="text-4xl font-body hover:text-secondary transition-colors uppercase tracking-tight"
+              href="mailto:pateltanish2109@gmail.com">Email</a>
+          </div>
+          <div class="group cursor-pointer link-item">
+            <span
+              class="text-[10px] font-body text-secondary uppercase tracking-[0.5em] block mb-2 opacity-0 group-hover:opacity-100 transition-opacity">&gt;
+              access repository...</span>
+            <a class="text-4xl font-body hover:text-secondary transition-colors uppercase tracking-tight"
+              href="https://github.com/yonko-luffy" target="_blank">GitHub</a>
+          </div>
+          <div class="group cursor-pointer link-item">
+            <span
+              class="text-[10px] font-body text-secondary uppercase tracking-[0.5em] block mb-2 opacity-0 group-hover:opacity-100 transition-opacity">&gt;
+              request network link...</span>
+            <a class="text-4xl font-body hover:text-secondary transition-colors uppercase tracking-tight"
+              href="https://www.linkedin.com/in/tanish-patel-cs/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <!-- Coding Profiles Sub-section -->
+        <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 mt-24 max-w-5xl">
+          <div class="group cursor-pointer flex flex-col items-center">
+            <span class="text-[10px] font-body text-secondary uppercase tracking-[0.4em] block mb-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">&gt; Rating: 1990</span>
+            <a href="https://leetcode.com/u/yonko_luffy" target="_blank"
+              class="font-body text-xs tracking-[0.2em] text-slate-400 group-hover:text-secondary transition-colors uppercase border-b border-transparent group-hover:border-secondary/30 pb-1">LeetCode</a>
+          </div>
+          <div class="group cursor-pointer flex flex-col items-center">
+            <span class="text-[10px] font-body text-secondary uppercase tracking-[0.4em] block mb-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">&gt; Rating: 1348</span>
+            <a href="https://codeforces.com/profile/yonko_luffy" target="_blank"
+              class="font-body text-xs tracking-[0.2em] text-slate-400 group-hover:text-secondary transition-colors uppercase border-b border-transparent group-hover:border-secondary/30 pb-1">Codeforces</a>
+          </div>
+          <div class="group cursor-pointer flex flex-col items-center">
+            <span class="text-[10px] font-body text-secondary uppercase tracking-[0.4em] block mb-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">&gt; Rating: 1630</span>
+            <a href="https://www.codechef.com/users/yonko_luffy" target="_blank"
+              class="font-body text-xs tracking-[0.2em] text-slate-400 group-hover:text-secondary transition-colors uppercase border-b border-transparent group-hover:border-secondary/30 pb-1">CodeChef</a>
+          </div>
+          <div class="group cursor-pointer flex flex-col items-center">
+            <span class="text-[10px] font-body text-secondary uppercase tracking-[0.4em] block mb-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">&gt; 5-Star Coder</span>
+            <a href="https://www.hackerrank.com/profile/yonko_luffy" target="_blank"
+              class="font-body text-xs tracking-[0.2em] text-slate-400 group-hover:text-secondary transition-colors uppercase border-b border-transparent group-hover:border-secondary/30 pb-1">HackerRank</a>
+          </div>
+        </div>
+        <div
+          class="mt-24 pt-12 border-t border-white/10 w-full flex justify-center items-center text-[10px] font-body text-slate-500 tracking-[0.3em]">
+          <span>STATUS: READY_FOR_CONNECTION</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer Shell -->
+  <footer
+    class="w-full py-12 px-12 bg-[#f9f9f9] flex flex-col justify-center items-center text-center border-t-[1px] border-black/5 gap-4">
+    <div class="text-xs font-mono text-black uppercase tracking-widest">©2026 TANISH PATEL</div>
+    <p class="font-body text-xs text-slate-500 max-w-md">Built with precision. Engineered for scalability. Optimized
+      for backend performance.</p>
+    <p class="font-body text-[10px] text-slate-400 mt-2 tracking-widest uppercase">Built in collaboration with Stitch
+      and Antigravity.</p>
+  </footer>
+  <!-- Progress Line -->
+  <div class="fixed right-2 top-0 bottom-0 w-[1px] bg-black/5 z-50">
+    <div class="w-full bg-secondary h-0 transition-all duration-300" id="scrollProgress"></div>
   </div>
-  <p>© 2026 Tanish Patel · Backend Engineer</p>
-</footer>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
 
-<!-- Project Modals -->
-<div class="modal" id="quantify">
-  <div class="modal-content">
-    <button class="close" onclick="closeModal('quantify')">×</button>
-    <h3>Quantify – Secure Quiz Platform</h3>
-    <p>
-      Secure quiz platform with RBAC, async 2FA, rate-limiting, CSRF protection, and reCAPTCHA.
-      Designed robust schemas for quizzes, questions, attempts, and scoring.
-    </p>
-    <div class="modal-actions">
-      <a href="https://github.com/Yonko-luffy/Quantify" target="_blank">GitHub</a>
-      <a href="https://quantify-app-317ee45a9c28.herokuapp.com/" target="_blank">Live Demo</a>
-    </div>
-    <div class="modal-images">
-      <!-- Optional: add screenshots later -->
-      <!-- <img src="assets/projects/quantify-1.png" alt=""> -->
-    </div>
-  </div>
-</div>
+    // Lenis Smooth Scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
 
-<div class="modal" id="linkforge">
-  <div class="modal-content">
-    <button class="close" onclick="closeModal('linkforge')">×</button>
-    <h3>LinkForge – URL Shortener</h3>
-    <p>
-      Multi-tenant URL shortener with user namespaces, bulk QR download, CSV export,
-      Dockerized deployment, and CI/CD on Render.
-    </p>
-    <div class="modal-actions">
-      <a href="https://github.com/Yonko-luffy/LinkForge" target="_blank">GitHub</a>
-      <a href="https://linkforge-wvl8.onrender.com/" target="_blank">Live Demo</a>
-    </div>
-    <div class="modal-images">
-      <!-- Optional screenshots -->
-    </div>
-  </div>
-</div>
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
-<script src="script.js"></script>
+    // Text Split Helper
+    function splitText(selector) {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach(el => {
+        const text = el.innerText;
+        el.innerHTML = text.split('').map(char => `<span class="char">${char === ' ' ? '&nbsp;' : char}</span>`).join('');
+      });
+    }
+
+    // Loader Logic
+    const tlLoader = gsap.timeline();
+    tlLoader.to("#loaderBar", { width: "100%", duration: 3.2, ease: "power1.inOut" });
+    tlLoader.to("#loaderPulse", { scale: 1.5, opacity: 1, duration: 1, ease: "sine.inOut" }, 0);
+    tlLoader.to("#loaderPulse", { scale: 10, opacity: 0, duration: 0.8, ease: "power4.in" }, 2.4);
+
+    // Particle Burst on finish
+    tlLoader.add(() => {
+      const loader = document.getElementById('loader');
+      const pulse = document.getElementById('loaderPulse');
+      const rect = pulse.getBoundingClientRect();
+      for (let i = 0; i < 40; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = rect.left + rect.width / 2 + 'px';
+        p.style.top = rect.top + rect.height / 2 + 'px';
+        loader.appendChild(p);
+        gsap.to(p, {
+          x: (Math.random() - 0.5) * 800,
+          y: (Math.random() - 0.5) * 800,
+          opacity: 0,
+          scale: 0,
+          duration: 1,
+          ease: "power2.out"
+        });
+      }
+    }, 2.4);
+
+    tlLoader.to("#flash", { opacity: 1, duration: 0.1 }, 3.1);
+    tlLoader.to("#loader", { display: 'none', duration: 0 }, 3.2);
+    tlLoader.to("#flash", { opacity: 0, duration: 0.8, ease: "power2.out" }, 3.2);
+    tlLoader.to("#mainHeader, #content", { opacity: 1, duration: 0.5 }, 3.2);
+
+    // Hero Entrance
+    splitText("#heroName span");
+    const tlHero = gsap.timeline({ paused: true });
+    tlHero.from("#heroName .char", {
+      y: 100,
+      opacity: 0,
+      stagger: 0.03,
+      duration: 1.2,
+      ease: "power4.out"
+    });
+    tlHero.from(".hero-stagger", {
+      y: 30,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power3.out"
+    }, "-=0.8");
+    tlHero.from(".shard-item", {
+      x: (i) => i === 0 ? -200 : 200,
+      y: (i) => i === 0 ? -200 : 200,
+      opacity: 0,
+      duration: 2,
+      ease: "power2.out"
+    }, "-=1.5");
+
+    tlLoader.add(() => tlHero.play(), 3.3);
+
+    // Scroll Animations
+    // Overview
+    gsap.from(".overview-vertical", {
+      scrollTrigger: {
+        trigger: "#overview",
+        start: "top 80%",
+        end: "bottom 20%",
+        scrub: 1
+      },
+      y: 200,
+      opacity: 0
+    });
+
+    document.querySelectorAll(".reveal-line").forEach(el => {
+      gsap.from(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+      });
+    });
+
+    gsap.from(".reveal-block", {
+      scrollTrigger: {
+        trigger: ".reveal-block",
+        start: "top 85%"
+      },
+      x: -50,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power2.out"
+    });
+
+    gsap.from(".reveal-item", {
+      scrollTrigger: {
+        trigger: ".reveal-item",
+        start: "top 85%"
+      },
+      y: 40,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    // Experience
+    document.querySelectorAll(".timeline-item").forEach((item, i) => {
+      gsap.from(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: "top 90%"
+        },
+        x: i % 2 === 0 ? -50 : 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+      });
+    });
+
+    // Projects
+    gsap.from(".project-card", {
+      scrollTrigger: {
+        trigger: "#archive",
+        start: "top 70%"
+      },
+      y: 100,
+      scale: 0.95,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 1.2,
+      ease: "expo.out"
+    });
+
+    // Contact
+    gsap.from(".contact-reveal h2", {
+      scrollTrigger: {
+        trigger: "#connect",
+        start: "top 60%"
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power4.out"
+    });
+
+    gsap.from(".link-item", {
+      scrollTrigger: {
+        trigger: ".contact-reveal",
+        start: "top 40%"
+      },
+      y: 50,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power3.out"
+    });
+
+    // Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('scrollProgress').style.height = scrollPercent + '%';
+    });
+  </script>
 </body>
+
 </html>
